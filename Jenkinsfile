@@ -1,6 +1,10 @@
 pipeline {
-    agent none
-
+    agent any
+	
+	environment {
+        GITHUB_CREDS = credentials('github-token')
+    }
+	
     stages {
         stage('Checkout') {
             agent { label 'windows' }
